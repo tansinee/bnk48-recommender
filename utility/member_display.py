@@ -15,7 +15,7 @@ def show_rank(ranks, n=5):
     max_size = max(selected_items, key=itemgetter(1))[1]
 
     def img_tag(name, size):
-        image_size = int(size / max_size * IMAGE_MAX_WIDTH)
+        image_size = max(int(size / max_size * IMAGE_MAX_WIDTH), IMAGE_MAX_WIDTH / 3)
         return f'''<img src="{member_images[name]}" 
             alt="{name} = {size * 100}%" 
             style="width: {image_size}px; display: inline-block;"/>'''
